@@ -1,3 +1,27 @@
+const usuarioCorrecto = "admin";
+const claveCorrecta = "123";
+
+let usuarioIngresado;
+let claveIngresada;
+let intentos = 3; // máximo intentos
+
+for (let i = 0; i < intentos; i++) {
+  usuarioIngresado = prompt("Usuario:");
+  claveIngresada = prompt("Clave:");
+
+  if (usuarioIngresado === usuarioCorrecto && claveIngresada === claveCorrecta) {
+    console.log("✅ Login exitoso. Bienvenido/a " + usuarioIngresado);
+    break;
+  } else {
+    console.log(`❌ Usuario o clave incorrectos. Intentos restantes: ${intentos - i - 1}`);
+  }
+
+  if (i === intentos - 1) {
+    console.log("🚫 Has excedido el número de intentos. Programa terminado.");
+    throw new Error("Acceso denegado");
+  }
+}
+
 const vacantes = [
   "Desarrollador Frontend Jr. - HTML, CSS, JavaScript, React",
   "Centro de Cómputo - NodeJS, Express, MongoDB",
